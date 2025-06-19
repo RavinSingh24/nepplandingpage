@@ -9,7 +9,7 @@
   
 </head>
 <body>
-    <nav>
+    <nav id="header">
         <div class="logo">
             <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
               <img src="NEPPlogo.png" alt="NEPP Logo" style="height: 40px; margin-right: 10px;">
@@ -26,7 +26,25 @@
           <li><a href="contact.html">CONTACT</a></li>
         </ul>
       </nav>
-      
+        <button
+    style="font-size: 50px; margin-left: 90%; margin-top: 5%; color: white; background-color:#071F36; border: none; display: block;"
+    onclick="closeNav()" id="closeNav">&uarr;</button>
+  <button
+    style="font-size: 50px; margin-left: 90%; margin-top: 5%; color: white; background-color:#071F36; border: none; display: none;"
+    onclick="openNav()" id="openNav">&#9776;</button>
+  <script>
+    function openNav() {
+      document.getElementById("header").style.height = "100px";
+      document.getElementById("closeNav").style.display = "block";
+      document.getElementById("openNav").style.display = "none";
+    }
+
+    function closeNav() {
+      document.getElementById("header").style.height = "0";
+      document.getElementById("closeNav").style.display = "none";
+      document.getElementById("openNav").style.display = "block";
+    }
+  </script>
 
 
   <div class="hero-slider">
@@ -46,7 +64,8 @@
       <a href="mun.html" style="color: white;">Model United Nations</a>,
       <a href="tsa.html" style="color: white;">Technology Student Association</a>, 
       <a href="scio.html" style="color: white;">Science Olympiad</a>, 
-      and <a href="debate.html" style="color: white;">Debate</a>.</p>
+      and <a href="debate.html" style="color: white;">Debate</a>.
+    </p>
   </section>
 
   <!--<a href="dashboard.html"> Testing</a>-->
@@ -55,71 +74,158 @@
     <h2>Our Programs</h2>
     <br>
     <div class="card-container">
-      <div class="card">
-        <div class="card-content">
+            <img src="tsalogo.png" alt="tsalogo" id="tsaBtn">
+      <div id="tsaModal" class="card modal">
+        <div class="card-content modal-content">
+          <span class="tsaclose">&times;</span>
           <h2>TSA</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Quisque maximus bibendum libero, et dapibus lectus egestas eget. Nulla varius sapien in feugiat fringilla. 
-            Suspendisse vitae pulvinar urna. 
-            Aliquam vitae enim ac ex vulputate facilisis. 
-            Donec ut pretium urna. Phasellus et pharetra libero. 
-            Vestibulum nec placerat ligula. In nec neque vel arcu commodo vulputate. 
-            Curabitur consectetur cursus blandit. Vivamus lobortis ipsum eu nulla pretium tristique. 
-            Fusce erat mauris, vestibulum ac metus sed, egestas interdum arcu. 
-            Donec blandit, neque ac semper fringilla, sapien justo placerat quam, quis porta mauris neque eu ipsum.</p>
+          <p id="tsa"></p>
           <a href="tsa.html" class="btn">Learn More</a>
         </div>
       </div>
-      <div class="card">
-        <div class="card-content">
+      <img src="munlogo.jfif" alt="munlogo" id="munBtn">
+      <div id="munModal" class="card modal">
+        <div class="card-content modal-content">
+          <span class="munclose">&times;</span>
           <h2>MUN</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Quisque maximus bibendum libero, et dapibus lectus egestas eget. Nulla varius sapien in feugiat fringilla. 
-            Suspendisse vitae pulvinar urna. 
-            Aliquam vitae enim ac ex vulputate facilisis. 
-            Donec ut pretium urna. Phasellus et pharetra libero. 
-            Vestibulum nec placerat ligula. In nec neque vel arcu commodo vulputate. 
-            Curabitur consectetur cursus blandit. Vivamus lobortis ipsum eu nulla pretium tristique. 
-            Fusce erat mauris, vestibulum ac metus sed, egestas interdum arcu. 
-            Donec blandit, neque ac semper fringilla, sapien justo placerat quam, quis porta mauris neque eu ipsum.</p>
+          <p id="mun"></p>
           <a href="mun.html" class="btn">Learn More</a>
         </div>
       </div>
-      <div class="card">
-        <div class="card-content">
+      <img src="sciologo.png" alt="sciologo" id="scioBtn">
+      <div id="scioModal" class="card modal">
+        <div class="card-content modal-content">
+          <span class="scioclose">&times;</span>
           <h2>Science Olympiad</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Quisque maximus bibendum libero, et dapibus lectus egestas eget. Nulla varius sapien in feugiat fringilla. 
-            Suspendisse vitae pulvinar urna. 
-            Aliquam vitae enim ac ex vulputate facilisis. 
-            Donec ut pretium urna. Phasellus et pharetra libero. 
-            Vestibulum nec placerat ligula. In nec neque vel arcu commodo vulputate. 
-            Curabitur consectetur cursus blandit. Vivamus lobortis ipsum eu nulla pretium tristique. 
-            Fusce erat mauris, vestibulum ac metus sed, egestas interdum arcu. 
-            Donec blandit, neque ac semper fringilla, sapien justo placerat quam, quis porta mauris neque eu ipsum.</p>
-          <a href="scio.html" class="btn">Learn More</a>        
+          <p id="scio"></p>
+          <a href="scio.html" class="btn">Learn More</a>
         </div>
       </div>
-      <div class="card">
-        <div class="card-content">
+      <img src="debatelogo.png" alt="debatelogo" id="debateBtn">
+      <div id="debateModal" class="card modal">
+        <div class="card-content modal-content">
+          <span class="debateclose">&times;</span>
           <h2>Debate</h2>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
-            Quisque maximus bibendum libero, et dapibus lectus egestas eget. Nulla varius sapien in feugiat fringilla. 
-            Suspendisse vitae pulvinar urna. 
-            Aliquam vitae enim ac ex vulputate facilisis. 
-            Donec ut pretium urna. Phasellus et pharetra libero. 
-            Vestibulum nec placerat ligula. In nec neque vel arcu commodo vulputate. 
-            Curabitur consectetur cursus blandit. Vivamus lobortis ipsum eu nulla pretium tristique. 
-            Fusce erat mauris, vestibulum ac metus sed, egestas interdum arcu. 
-            Donec blandit, neque ac semper fringilla, sapien justo placerat quam, quis porta mauris neque eu ipsum.</p>
+          <p id="debate"></p>
           <a href="debate.html" class="btn">Learn More</a>
         </div>
       </div>
     </div>
   </section>
+  <!--Modal script-->
+  <script>
+    // Get the modal
+    var tsamodal = document.getElementById("tsaModal");
+    var munmodal = document.getElementById("munModal");
+    var sciomodal = document.getElementById("scioModal");
+    var debatemodal = document.getElementById("debateModal");
+
+    // Get the button that opens the modal
+    var tsabtn = document.getElementById("tsaBtn");
+    var munbtn = document.getElementById("munBtn");
+    var sciobtn = document.getElementById("scioBtn");
+    var debatebtn = document.getElementById("debateBtn");
+
+    // Get the <span> element that closes the modal
+    var tsaspan = document.getElementsByClassName("tsaclose")[0];
+    var munspan = document.getElementsByClassName("munclose")[0];
+    var sciospan = document.getElementsByClassName("scioclose")[0];
+    var debatespan = document.getElementsByClassName("debateclose")[0];
+
+    // When the user clicks on the button, open the modal
+    tsabtn.onclick = function () {
+      tsamodal.style.display = "block";
+      tsaWriter()
+    }
+
+    munbtn.onclick = function () {
+      munmodal.style.display = "block";
+      munWriter()
+    }
+
+    sciobtn.onclick = function () {
+      sciomodal.style.display = "block";
+      scioWriter()
+    }
+
+    debatebtn.onclick = function () {
+      debatemodal.style.display = "block";
+      debateWriter()
+    }
+
+    // When the user clicks on <span> (x), close the modal
+    tsaspan.onclick = function () {
+      tsamodal.style.display = "none";
+    }
+    munspan.onclick = function () {
+      munmodal.style.display = "none";
+    }
+    sciospan.onclick = function () {
+      sciomodal.style.display = "none";
+    }
+    debatespan.onclick = function () {
+      debatemodal.style.display = "none";
+    }
+
+    // When the user clicks anywhere outside of the modal, close it
+    window.onclick = function (event) {
+      if (event.target == tsamodal || event.target == munmodal || event.target == sciomodal || event.target == debatemodal) {
+        tsamodal.style.display = "none";
+        munmodal.style.display = "none";
+        sciomodal.style.display = "none";
+        debatemodal.style.display = "none";
+      }
+    }
+
+  </script>
+  <!--Typewriter script-->
+  <script>
+    var t = 0;
+    var m = 0;
+    var s = 0;
+    var d = 0;
+    var tsatxt = 'Through our mentorship, students can reach high into the rankings of TSA and win first in all kind of events. Our state and national winning mentors will provide insightful advice stretching across many events so you can excel.';
+    var muntxt = 'Our gavel winning mentors will help you win conferences. With our mentors we will prepare you for CHMUN, TECHMUN, and so much more. through NEPPMOCK and NEPPMUN, we will train students to excel at MUN';
+    var sciotxt = 'With NEPP, we will prepare you to excel at invites and regionals all the way to states. We will provide mock exams and mock regionals to train students so they can fully grasp their events. With this they will excel at Science Olympiad.';
+    var debatetxt = 'With our amazing debate mentors, we will train you to excel at providing your argument and backing it up with evidence. We will help you with how to properly structure your assertion, provide evidence, and form rebuttals. We will help you clearly enunciate your words so your argument is more supported by the judges increasing your chance of winning.';
+    var speed = 50;
+
+    function tsaWriter() {
+      if (t < tsatxt.length) {
+        document.getElementById("tsa").innerHTML += tsatxt.charAt(t);
+        t++;
+        setTimeout(tsaWriter, speed);
+      }
+    }
+    function munWriter() {
+      if (m < muntxt.length) {
+        document.getElementById("mun").innerHTML += muntxt.charAt(m);
+        m++;
+        setTimeout(munWriter, speed);
+      }
+    }
+    function scioWriter() {
+      if (s < sciotxt.length) {
+        document.getElementById("scio").innerHTML += sciotxt.charAt(s);
+        s++;
+        setTimeout(scioWriter, speed);
+      }
+    }
+    function debateWriter() {
+      if (d < debatetxt.length) {
+        document.getElementById("debate").innerHTML += debatetxt.charAt(d);
+        d++;
+        setTimeout(debateWriter, speed);
+      }
+    }
+  
+  </script>
+
+
 
   <footer class="footer">
-    <p>Contact us: <a href="mailto:nepp.advisors@gmail.com">email</a> | <a href="https://www.instagram.com/neppadvisors/" target="_blank">Instagram</a></p>
+    <p>Contact us: <a href="mailto:nepp.advisors@gmail.com">email</a> | 
+      <a href="https://www.instagram.com/neppadvisors/" target="_blank">Instagram</a></p>
     <p>© 2025 NEPP | A Non-Profit Organization</p>
   </footer>
   <script>
