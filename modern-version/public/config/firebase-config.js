@@ -5,7 +5,7 @@ import { getStorage } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-s
 import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.22.2/firebase-analytics.js";
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDVzvRC9lwlJGRLzsj1S-o-Y-b1DtmD9TQ",
+  apiKey: "HIDDEN",
   authDomain: "nepp-82074.firebaseapp.com",
   databaseURL: "https://nepp-82074-default-rtdb.firebaseio.com",
   projectId: "nepp-82074",
