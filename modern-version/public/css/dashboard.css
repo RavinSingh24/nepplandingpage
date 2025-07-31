@@ -1,0 +1,291 @@
+/* Dashboard-specific styles only - global styles are in styles.css */
+
+/* Dashboard grid layout */
+.dashboard-sections {
+  display: grid;
+  grid-template-columns: 1.6fr 1.4fr;
+  gap: 32px;
+  align-items: start;
+}
+
+/* Dashboard panel enhancements */
+.panel {
+  background: linear-gradient(145deg, #1a2436 0%, #243447 100%);
+  border: 1px solid #334a66;
+  padding: 32px 28px;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+
+.panel:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 214, 0, 0.3);
+}
+
+.panel.announcements {
+  grid-column: 1 / 2;
+  grid-row: 1 / 3;
+  min-height: 500px;
+  background: linear-gradient(145deg, #1a2436 0%, #243447 100%);
+}
+
+.panel.forms-section {
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  min-height: 220px;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #192641 0%, #243657 100%);
+}
+
+.panel.calendar {
+  grid-column: 2 / 3;
+  grid-row: 2 / 3;
+  min-height: 260px;
+  width: 100%;
+  max-width: none;
+  box-sizing: border-box;
+  background: linear-gradient(145deg, #16283c 0%, #1f3449 100%);
+}
+
+/* Section header styles */
+.forms-header,
+.announcements-header,
+.calendar-section-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.forms-header h2,
+.announcements-header h2,
+.calendar-section-header h2 {
+  margin: 0;
+}
+
+/* Shared View All button styles */
+.view-all-btn {
+  background: linear-gradient(135deg, #4a90e2 0%, #357abd 100%);
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 6px;
+  font-weight: 600;
+  font-size: 0.85rem;
+  text-decoration: none;
+  cursor: pointer;
+  box-shadow: 0 3px 10px rgba(74, 144, 226, 0.3);
+  transition: all 0.2s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.view-all-btn:hover {
+  background: linear-gradient(135deg, #357abd 0%, #2968a3 100%);
+  transform: translateY(-1px);
+  box-shadow: 0 5px 14px rgba(74, 144, 226, 0.4);
+}
+
+#formsList {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-item {
+  background: linear-gradient(135deg, #1a2436 0%, #243447 100%);
+  border: 1px solid #334a66;
+  padding: 20px;
+  border-radius: 12px;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+}
+
+.form-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  border-color: #FFD600;
+}
+
+.form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 12px;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.form-title {
+  margin: 0;
+  flex: 1;
+}
+
+.form-title a {
+  color: #FFD600;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 600;
+  transition: color 0.2s;
+}
+
+.form-title a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.form-due-date {
+  background: #374151;
+  color: #fbbf24;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.form-description {
+  color: #d1d5db;
+  font-size: 0.9rem;
+  line-height: 1.4;
+  margin: 0 0 12px 0;
+}
+
+.form-actions {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 12px;
+}
+
+.edit-form-link,
+.view-results-link {
+  color: #FFD600;
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+}
+
+.edit-form-link:hover {
+  background: rgba(255, 214, 0, 0.1);
+  border-color: #FFD600;
+}
+
+.view-results-link:hover {
+  background: rgba(59, 130, 246, 0.1);
+  border-color: #3b82f6;
+  color: #3b82f6;
+}
+
+
+/* Dashboard Content Item Styles */
+.announcement-item, .form-item {
+  background: #1c2a4a;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-bottom: 1rem;
+  border-left: 3px solid #FFD600;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.form-item {
+  border-left-color: #4a90e2;
+}
+
+.announcement-item .announcement-author,
+.announcement-item .announcement-time {
+  font-size: 0.85rem;
+  color: #a0aec0;
+  margin-right: 1rem;
+}
+
+.form-item .form-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.form-item .form-title a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
+
+.form-item .form-title a:hover {
+  color: #FFD600;
+}
+
+.form-item .form-due-date {
+  font-size: 0.85rem;
+  color: #a0aec0;
+}
+
+.form-item .form-description {
+  font-size: 0.95rem;
+  color: #cbd5e0;
+}
+
+/* Modal Styles - Dashboard specific */
+.modal {
+  display: flex;
+  position: fixed;
+  z-index: 1000;
+  left: 0; top: 0;
+  width: 100vw; height: 100vh;
+  background: rgba(0,0,0,0.55);
+  align-items: center;
+  justify-content: center;
+}
+.modal-content {
+  background: #192641;
+  border-radius: 12px;
+  padding: 32px 28px 24px 28px;
+  min-width: 320px;
+  box-shadow: 0 2px 16px #0008;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  position: relative;
+}
+.modal-content label {
+  font-weight: 600;
+  margin-top: 6px;
+}
+.modal-content input,
+.modal-content textarea {
+  padding: 7px 8px;
+  border-radius: 5px;
+  border: 1px solid #334361;
+  background: #0a0f1a;
+  color: #fff;
+  margin-bottom: 9px;
+  font-size: 1em;
+}
+.modal-content textarea {
+  min-height: 60px;
+  resize: vertical;
+}
+.close {
+  position: absolute;
+  right: 18px;
+  top: 14px;
+  font-size: 1.8rem;
+  color: #fff;
+  cursor: pointer;
+  font-weight: bold;
+  transition: color 0.15s;
+}
+.close:hover {
+  color: gold;
+}

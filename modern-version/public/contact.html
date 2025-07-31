@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEPP | Contact</title>
+
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            navy: '#001F3F',
+            yellow: '#FFD700',
+          },
+          fontFamily: {
+            inter: ['Inter', 'sans-serif'],
+          },
+          animation: {
+            fadeIn: "fadeIn 1s ease-out forwards",
+          },
+          keyframes: {
+            fadeIn: {
+              '0%': { opacity: '0', transform: 'translateY(20px)' },
+              '100%': { opacity: '1', transform: 'translateY(0)' },
+            },
+          }
+        }
+      }
+    };
+  </script>
+
+  <!-- Font (optional) -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body class="bg-navy text-white font-inter min-h-screen flex flex-col">
+
+  <!-- Navbar -->
+  <nav class="flex items-center justify-between px-6 py-4 shadow-md bg-white/10 backdrop-blur-sm border-b border-white/20">
+    <div class="flex items-center space-x-3">
+      <a  href="index.html">
+      <img src="NEPPlogo.png" alt="NEPP Logo" class="h-10">
+      <span class="text-yellow font-bold text-xl">NEPP</span>
+      </a>
+       <!-- <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+              <img src="NEPPlogo.png" alt="NEPP Logo" style="height: 40px; margin-right: 10px;">
+              <span style="font-size: 1.5rem; font-weight: bold; color: var(--accent-color);">NEPP</span>
+            </a> -->
+    </div>
+    <ul class="flex space-x-6 text-sm font-medium">
+      <li><a href="mun.html" class="hover:text-yellow transition">MUN</a></li>
+      <li><a href="tsa.html" class="hover:text-yellow transition">TSA</a></li>
+      <li><a href="scio.html" class="hover:text-yellow transition">SCIO</a></li>
+      <li><a href="debate.html" class="hover:text-yellow transition">DEBATE</a></li>
+      <li class="text-yellow">|</li>
+      <li><a href="team.html" class="hover:text-yellow transition">TEAM</a></li>
+      <li><a href="contact.html" class="hover:text-yellow transition">CONTACT</a></li>
+      <li><a href="login.html" id="login-link" class="hover:text-yellow transition">LOGIN</a></li>
+      <li><a href="#" id="logout-link" style="display: none;" class="hover:text-yellow transition">LOGOUT</a></li>
+      <li><a href="profile.html" id="profile-link" style="display: none;" class="hover:text-yellow transition">PROFILE</a></li>
+    </ul>
+  </nav>
+
+  <!-- Contact Section -->
+  <section class="flex-grow flex items-center justify-center bg-gradient-to-br from-navy to-yellow p-6">
+    <div class="w-full max-w-lg bg-white/10 backdrop-blur-lg text-white rounded-2xl p-8 shadow-2xl animate-fadeIn border border-white/20">
+      <h2 class="text-4xl font-bold text-center text-navy mb-6">Contact Us</h2>
+      <form action="https://api.web3forms.com/submit" method="POST" class="space-y-6">
+        <input type="hidden" name="access_key" value="d4221f31-950d-46fc-9eef-6d4e14e3cd1f">
+
+        <!-- Name -->
+        <div class="relative">
+          <input type="text" id="name" name="name" required
+            class="peer w-full px-4 pt-6 pb-2 text-white bg-transparent border-b-2 border-yellow placeholder-transparent focus:outline-none focus:border-white transition-all"
+            placeholder="Name" />
+          <label for="name"
+            class="absolute left-4 top-2 text-sm text-yellow peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 transition-all">
+            Name
+          </label>
+        </div>
+
+        <!-- Email -->
+        <div class="relative">
+          <input type="email" id="email" name="email" required
+            class="peer w-full px-4 pt-6 pb-2 text-white bg-transparent border-b-2 border-yellow placeholder-transparent focus:outline-none focus:border-white transition-all"
+            placeholder="Email" />
+          <label for="email"
+            class="absolute left-4 top-2 text-sm text-yellow peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 transition-all">
+            Email
+          </label>
+        </div>
+
+        <!-- Message -->
+        <div class="relative">
+          <textarea id="message" name="message" rows="4" required
+            class="peer w-full px-4 pt-6 pb-2 text-white bg-transparent border-b-2 border-yellow placeholder-transparent focus:outline-none focus:border-white transition-all resize-none"
+            placeholder="Message"></textarea>
+          <label for="message"
+            class="absolute left-4 top-2 text-sm text-yellow peer-placeholder-shown:top-5 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-300 transition-all">
+            Message
+          </label>
+        </div>
+
+        <!-- Submit -->
+        <div class="text-center">
+          <button type="submit"
+            class="w-full px-6 py-3 bg-yellow text-navy font-bold rounded-xl shadow-lg hover:shadow-yellow transition-all duration-300 hover:scale-105">
+            Send Message
+          </button>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm text-white bg-white/10 backdrop-blur-sm py-4 border-t border-white/20">
+    <p>Contact us: <a href="mailto:nepp.advisors@gmail.com" class="underline text-yellow">email</a> | 
+      <a href="https://www.instagram.com/neppadvisors/" target="_blank" class="underline text-yellow">Instagram</a></p>
+    <p>© 2025 NEPP | A Non-Profit Organization</p>
+  </footer>
+
+
+  <!-- Firebase Authentication -->
+  <script type="module">
+    import { setupAuth } from './auth.js';
+    setupAuth();
+  </script>
+
+</body>
+</html>

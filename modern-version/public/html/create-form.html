@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Create Form - NEPP</title>
+  <link rel="icon" href="../images/logo.png" type="image/png">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/create-form.css">
+</head>
+<body>
+  <div id="settings-container"></div>
+  <div class="nepp-root">
+    <aside class="sidebar">
+      <!-- Sidebar content will be loaded here by sidebar.js -->
+    </aside>
+    <main class="main-content">
+      <div class="forms-header">
+        <h1>Create New Form</h1>
+      </div>
+
+      <div class="create-form-container">
+        <form id="createFormForm">
+          <div class="form-group">
+            <label for="formTitle">Title</label>
+            <input type="text" id="formTitle" required placeholder="Enter form title">
+          </div>
+
+          <div class="form-group">
+            <label for="formDescription">Description</label>
+            <textarea id="formDescription" placeholder="Enter form description"></textarea>
+          </div>
+
+          <div class="form-group">
+            <label for="dueDate">Due Date</label>
+            <input type="datetime-local" id="dueDate" required>
+          </div>
+
+          <!-- New Target Audience Section -->
+          <div class="form-group">
+            <label>Target Audience</label>
+            <div class="audience-selector">
+              <div class="audience-tabs">
+                <button type="button" class="audience-tab active" data-target="groups">Groups</button>
+                <button type="button" class="audience-tab" data-target="individuals">Individual Users</button>
+                <button type="button" class="audience-tab" data-target="both">Both</button>
+              </div>
+              
+              <div class="audience-content">
+                <div id="groups-selection" class="audience-section active">
+                  <div class="selected-groups" id="selectedGroups">
+                    <!-- Selected groups will appear here -->
+                  </div>
+                  <div class="group-search">
+                    <input type="text" id="groupSearch" placeholder="Search groups... (click to see all)">
+                    <div class="group-results" id="groupResults">
+                      <!-- Group search results will appear here -->
+                    </div>
+                  </div>
+                </div>
+                
+                <div id="individuals-selection" class="audience-section">
+                  <div class="selected-users" id="selectedUsers">
+                    <!-- Selected users will appear here -->
+                  </div>
+                  <div class="user-search">
+                    <input type="text" id="userSearch" placeholder="Search users by name or email... (click to see all)">
+                    <div class="user-results" id="userResults">
+                      <!-- User search results will appear here -->
+                    </div>
+                  </div>
+                </div>
+                
+                <div id="both-selection" class="audience-section">
+                  <p class="section-info">You can select both groups and individual users. The form will be accessible to all selected recipients.</p>
+                  <div class="both-sections">
+                    <div class="both-groups">
+                      <h4>Selected Groups</h4>
+                      <div class="selected-groups" id="selectedGroupsBoth">
+                        <!-- Selected groups for both mode -->
+                      </div>
+                      <input type="text" id="groupSearchBoth" placeholder="Search groups... (click to see all)">
+                      <div class="group-results" id="groupResultsBoth">
+                        <!-- Group search results for both mode -->
+                      </div>
+                    </div>
+                    <div class="both-users">
+                      <h4>Selected Users</h4>
+                      <div class="selected-users" id="selectedUsersBoth">
+                        <!-- Selected users for both mode -->
+                      </div>
+                      <input type="text" id="userSearchBoth" placeholder="Search users... (click to see all)">
+                      <div class="user-results" id="userResultsBoth">
+                        <!-- User search results for both mode -->
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="question-builder">
+            <h3>Form Content</h3>
+            <div class="question-types">
+              <button type="button" class="question-type-btn" data-type="Multiple Choice">Multiple Choice</button>
+              <button type="button" class="question-type-btn" data-type="Short Answer">Short Answer</button>
+              <button type="button" class="question-type-btn" data-type="Long Answer">Long Answer</button>
+              <button type="button" class="question-type-btn" data-type="File Upload">File Upload</button>
+              <button type="button" class="question-type-btn" data-type="Poll">Poll</button>
+              <button type="button" class="question-type-btn" data-type="Checkboxes">Checkboxes</button>
+              <button type="button" class="question-type-btn" data-type="Linear Scale">Linear Scale</button>
+            </div>
+
+            <div id="questionsContainer">
+              <!-- Questions will be added here -->
+            </div>
+          </div>
+
+          <div class="form-actions">
+            <button type="button" id="cancelForm" class="cancel-btn">Cancel</button>
+            <button type="submit" class="submit-btn">Create Form</button>
+          </div>
+        </form>
+      </div>
+    </main>
+  </div>
+
+  <script type="module" src="/config/firebase-config.js"></script>
+  <script type="module" src="/components/sidebar.js"></script>
+  <script type="module" src="../js/create-form.js"></script>
+</body>
+</html>

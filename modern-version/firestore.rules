@@ -1,0 +1,182 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Helper functions for better security
+    function isAuthenticated() {
+      return request.auth != null;
+    }
+    
+    function isOwner(userId) {
+      return isAuthenticated() && request.auth.uid == userId;
+    }
+    
+    function isValidEmail() {
+      return isAuthenticated() && request.auth.token.email_verified;
+    }
+    
+    // Users can read and write their own user document
+    match /users/{userId} {
+      allow read, write: if isOwner(userId);
+      // Allow users to read other users' basic info for group functionality (email verified only)
+      allow read: if isValidEmail();
+      
+      // User notifications subcollection - users can only access their own notifications
+      match /notifications/{notificationId} {
+        allow read, write, delete: if isOwner(userId);
+        allow create: if isAuthenticated(); // Others can create notifications for this user
+      }
+    }
+    
+    // Groups - comprehensive permissions with enhanced security
+    match /groups/{groupId} {
+      // Allow reading groups only for verified users and only if they're members or it's needed for join operations
+      allow read: if isValidEmail() && (
+        request.auth.uid in resource.data.members ||
+        request.auth.uid == resource.data.createdBy ||
+        request.auth.uid == resource.data.ownerId ||
+        request.auth.uid in resource.data.coOwners ||
+        request.auth.uid in resource.data.admins
+      );
+      
+      // Allow creating groups (with email verification)
+      allow create: if isValidEmail() && 
+        request.auth.uid == request.resource.data.createdBy &&
+        request.resource.data.ownerId == request.auth.uid;
+        
+      // Allow updates for owners, co-owners, and admins (with member validation)
+      allow update: if isValidEmail() && (
+        request.auth.uid == resource.data.createdBy ||
+        request.auth.uid == resource.data.ownerId ||
+        request.auth.uid in resource.data.coOwners ||
+        request.auth.uid in resource.data.admins ||
+        // Allow joining only if user is adding themselves to members
+        (request.auth.uid in request.resource.data.members && 
+         !(request.auth.uid in resource.data.members))
+      );
+      
+      // Allow deletion only for owners
+      allow delete: if isValidEmail() && (
+        request.auth.uid == resource.data.createdBy ||
+        request.auth.uid == resource.data.ownerId
+      );
+    }
+    
+    // Forms - enhanced security with member validation
+    match /forms/{formId} {
+      // Allow reading for:
+      // 1. Form creators
+      // 2. Users the form is specifically shared with
+      // 3. Group members for forms assigned to groups (validated server-side)
+      allow read: if isValidEmail() && (
+        request.auth.uid == resource.data.createdBy ||
+        request.auth.uid in resource.data.targetUsers ||
+        // Note: Group membership validation should be done client-side for performance
+        resource.data.targetGroups != null
+      );
+      
+      // Allow creating forms (email verified users only)
+      allow create: if isValidEmail() && 
+        request.auth.uid == request.resource.data.createdBy;
+        
+      // Allow updates only for creators
+      allow update, delete: if isValidEmail() && 
+        request.auth.uid == resource.data.createdBy;
+    }
+    
+    // Form responses - allow authenticated users to create and read their own responses
+    match /form_responses/{responseId} {
+      allow read: if isValidEmail() && (
+        // User can read their own responses
+        request.auth.uid == resource.data.userId ||
+        // Form creator can read responses to their forms
+        get(/databases/$(database)/documents/forms/$(resource.data.formId)).data.createdBy == request.auth.uid
+      );
+      allow create: if isValidEmail() && 
+        request.auth.uid == request.resource.data.userId;
+    }
+    
+    // Legacy formResponses collection (keeping for backward compatibility)
+    match /formResponses/{responseId} {
+      allow read: if isValidEmail() && (
+        // User can read their own responses
+        request.auth.uid == resource.data.userId ||
+        // Form creator can read responses to their forms
+        get(/databases/$(database)/documents/forms/$(resource.data.formId)).data.createdBy == request.auth.uid
+      );
+      allow create: if isValidEmail() && 
+        request.auth.uid == request.resource.data.userId;
+    }
+    
+    // Events - enhanced rules for target audience functionality
+    match /events/{eventId} {
+      // Allow reading for all authenticated users
+      // (Client-side filtering will ensure users only see appropriate events)
+      allow read: if isValidEmail();
+      
+      // Allow creating events with proper data structure validation
+      allow create: if isValidEmail() && 
+        request.auth.uid == request.resource.data.createdBy &&
+        request.resource.data.selectedGroups is list &&
+        request.resource.data.invitedUsers is list;
+      
+      // Allow updates and deletions only for event creator
+      allow update, delete: if isValidEmail() && 
+        request.auth.uid == resource.data.createdBy;
+    }
+    
+    // Announcements - simplified access
+    match /announcements/{announcementId} {
+      allow read: if isValidEmail();
+      allow create: if isValidEmail() && 
+        request.auth.uid == request.resource.data.createdBy;
+      allow update, delete: if isValidEmail() && 
+        request.auth.uid == resource.data.createdBy;
+    }
+    
+    // Resources - comprehensive sharing permissions
+    match /resources/{resourceId} {
+      // Allow reading for:
+      // 1. File owner
+      // 2. Users the file is shared with specifically
+      // 3. Group members if shared with a group
+      allow read: if isValidEmail() && (
+        // File owner can always read
+        request.auth.uid == resource.data.userId ||
+        // File is shared with specific users and current user is in the list
+        (resource.data.shareType == 'specific' && 
+         request.auth.uid in resource.data.sharedWith) ||
+        // File is shared with a group (we'll check group membership in client for performance)
+        (resource.data.shareType == 'group' && resource.data.groupId != null)
+      );
+      
+      // Allow creating resources
+      allow create: if isValidEmail() && 
+        request.auth.uid == request.resource.data.userId;
+      
+      // Allow updates only for file owner
+      allow update: if isValidEmail() && 
+        request.auth.uid == resource.data.userId;
+      
+      // Allow deletion only for file owner
+      allow delete: if isValidEmail() && 
+        request.auth.uid == resource.data.userId;
+    }
+    
+    // Feedback collection - users can create feedback, only you can read all
+    match /feedback/{feedbackId} {
+      // Allow users to create feedback
+      allow create: if isValidEmail() && 
+        request.auth.uid == request.resource.data.userId;
+      
+      // Allow users to read their own feedback
+      allow read: if isValidEmail() && 
+        request.auth.uid == resource.data.userId;
+      
+      // You can add your own UID here to read all feedback for admin purposes
+      // allow read: if isValidEmail() && request.auth.uid == 'YOUR_ADMIN_UID';
+      
+      // Updates only for status changes (by admins)
+      // allow update: if isValidEmail() && request.auth.uid == 'YOUR_ADMIN_UID';
+    }
+  }
+}

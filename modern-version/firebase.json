@@ -1,0 +1,149 @@
+{
+  "hosting": {
+    "public": "public",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ],
+    "rewrites": [
+      {
+        "source": "/",
+        "destination": "/index.html"
+      },
+      {
+        "source": "/login",
+        "destination": "/login.html"
+      },
+      {
+        "source": "/signup",
+        "destination": "/signup.html"
+      },
+      {
+        "source": "/dashboard",
+        "destination": "/html/dashboard.html"
+      },
+      {
+        "source": "/profile",
+        "destination": "/html/profile.html"
+      },
+      {
+        "source": "/users",
+        "destination": "/html/users.html"
+      },
+      {
+        "source": "/users/**",
+        "destination": "/html/user-profile.html"
+      },
+      {
+        "source": "/groups",
+        "destination": "/html/groups.html"
+      },
+      {
+        "source": "/forms",
+        "destination": "/html/forms.html"
+      },
+      {
+        "source": "/forms/**",
+        "destination": "/html/view-form.html"
+      },
+      {
+        "source": "/create-form",
+        "destination": "/html/create-form.html"
+      },
+      {
+        "source": "/edit-form/**",
+        "destination": "/html/edit-form.html"
+      },
+      {
+        "source": "/announcements",
+        "destination": "/html/announcements.html"
+      },
+      {
+        "source": "/events",
+        "destination": "/html/events.html"
+      },
+      {
+        "source": "/resources",
+        "destination": "/html/resources.html"
+      },
+      {
+        "source": "/settings",
+        "destination": "/html/settings.html"
+      },
+      {
+        "source": "/privacy",
+        "destination": "/privacy.html"
+      },
+      {
+        "source": "/terms",
+        "destination": "/terms.html"
+      },
+      {
+        "source": "/tsa",
+        "destination": "/tsa.html"
+      },
+      {
+        "source": "/mun",
+        "destination": "/mun.html"
+      },
+      {
+        "source": "/scio",
+        "destination": "/scio.html"
+      },
+      {
+        "source": "/team",
+        "destination": "/team.html"
+      },
+      {
+        "source": "/contact",
+        "destination": "/contact.html"
+      },
+      {
+        "source": "**",
+        "destination": "/html/404.html"
+      }
+    ],
+    "headers": [
+      {
+        "source": "**/*.@(js|mjs)",
+        "headers": [
+          {
+            "key": "Content-Type",
+            "value": "text/javascript"
+          }
+        ]
+      },
+      {
+        "source": "**",
+        "headers": [
+          {
+            "key": "X-Content-Type-Options",
+            "value": "nosniff"
+          },
+          {
+            "key": "X-Frame-Options",
+            "value": "DENY"
+          },
+          {
+            "key": "X-XSS-Protection",
+            "value": "1; mode=block"
+          },
+          {
+            "key": "Referrer-Policy",
+            "value": "strict-origin-when-cross-origin"
+          }
+        ]
+      }
+    ],
+    "cleanUrls": true,
+    "trailingSlash": false
+  },
+  "firestore": {
+    "rules": "firestore.rules",
+    "indexes": "firestore.indexes.json"
+  },
+  "storage": {
+    "rules": "storage.rules"
+  }
+}

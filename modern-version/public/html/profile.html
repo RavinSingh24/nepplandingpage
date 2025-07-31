@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile - NEPP</title>
+  <link rel="icon" href="../images/logo.png" type="image/png">
+  <link rel="stylesheet" href="../css/styles.css">
+  <link rel="stylesheet" href="../css/profile.css">
+</head>
+<body>
+  <div class="nepp-root">
+        <aside class="sidebar"></aside>
+
+    <main class="main-content">
+      <div class="profile-header">
+        <h1>Profile</h1>
+        <p class="profile-subtitle">Manage your account information and preferences</p>
+      </div>
+
+      <div class="profile-container">
+        <div class="profile-section">
+          <div class="profile-avatar-section">
+            <div class="profile-avatar">
+              <div class="avatar-large" id="profileAvatar">
+                <img id="profileImage" src="" alt="Profile" style="display: none; width: 100%; height: 100%; border-radius: 50%; object-fit: cover;">
+                <span id="profileInitial">?</span>
+              </div>
+              <button class="change-avatar-btn" id="changeAvatarBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 0 1 5.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 0 0 2.25 2.25h15A2.25 2.25 0 0 0 21.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 0 0-1.134-.175 2.31 2.31 0 0 1-1.64-1.055l-.822-1.316a2.192 2.192 0 0 0-1.736-1.039 48.774 48.774 0 0 0-5.232 0 2.192 2.192 0 0 0-1.736 1.039l-.821 1.316Z" />
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 1 1-9 0 4.5 4.5 0 0 1 9 0ZM18.75 10.5h.008v.008h-.008V10.5Z" />
+                </svg>
+                Change Photo
+              </button>
+              <input type="file" id="avatarInput" accept="image/*" style="display: none;">
+            </div>
+            <div class="profile-info">
+              <h2 id="profileDisplayName">Loading...</h2>
+              <p id="profileEmail">Loading...</p>
+              <p class="profile-member-since">Member since <span id="memberSince">Loading...</span></p>
+            </div>
+          </div>
+        </div>
+
+        <div class="profile-sections">
+          <div class="profile-section">
+            <h3>Account Information</h3>
+            <div class="profile-form">
+              <div class="form-group">
+                <label for="displayName">Display Name</label>
+                <input type="text" id="displayName" placeholder="Enter your display name">
+              </div>
+              <div class="form-group">
+                <label for="email">Email Address</label>
+                <input type="email" id="email" readonly>
+                <small class="form-note">Email address cannot be changed here. You can change it in settings</small>
+              </div>
+              <div class="form-group">
+                <label for="bio">Bio</label>
+                <textarea id="bio" placeholder="Tell us about yourself" rows="4"></textarea>
+              </div>
+              <button class="save-profile-btn" id="saveProfileBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" />
+                </svg>
+                Save Changes
+              </button>
+            </div>
+          </div>
+
+          <div class="profile-section">
+            <h3>Privacy Settings</h3>
+            <div class="privacy-form">
+              <div class="privacy-option">
+                <div class="privacy-option-info">
+                  <h4>Profile Visibility</h4>
+                  <p>Control who can view your profile information</p>
+                </div>
+                <select id="profileVisibility" class="privacy-select">
+                  <option value="public">Everyone</option>
+                  <option value="members">Members only</option>
+                  <option value="private">Private</option>
+                </select>
+              </div>
+              <div class="privacy-option">
+                <div class="privacy-option-info">
+                  <h4>Email Visibility</h4>
+                  <p>Show your email address to other users</p>
+                </div>
+                <select id="emailVisibility" class="privacy-select">
+                  <option value="public">Everyone</option>
+                  <option value="members">Members only</option>
+                  <option value="private">Private</option>
+                </select>
+              </div>
+              <div class="privacy-option">
+                <div class="privacy-option-info">
+                  <h4>Activity Status</h4>
+                  <p>Show when you're online and active</p>
+                </div>
+                <label class="privacy-toggle">
+                  <input type="checkbox" id="showActivityStatus" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="privacy-option">
+                <div class="privacy-option-info">
+                  <h4>Group Notifications</h4>
+                  <p>Receive notifications when you're added to groups</p>
+                </div>
+                <label class="privacy-toggle">
+                  <input type="checkbox" id="groupNotifications" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <div class="privacy-option">
+                <div class="privacy-option-info">
+                  <h4>Form Notifications</h4>
+                  <p>Receive notifications for new forms and deadlines</p>
+                </div>
+                <label class="privacy-toggle">
+                  <input type="checkbox" id="formNotifications" checked>
+                  <span class="toggle-slider"></span>
+                </label>
+              </div>
+              <button class="save-privacy-btn" id="savePrivacyBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                </svg>
+                Save Privacy Settings
+              </button>
+            </div>
+          </div>
+
+          <div class="profile-section">
+            <h3>Statistics</h3>
+            <div class="stats-grid">
+              <div class="stat-card">
+                <div class="stat-number" id="formsCreated">0</div>
+                <div class="stat-label">Forms Created</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number" id="formsBookmarked">0</div>
+                <div class="stat-label">Forms Bookmarked</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number" id="responsesReceived">0</div>
+                <div class="stat-label">Responses Received</div>
+              </div>
+              <div class="stat-card">
+                <div class="stat-number" id="responsesSubmitted">0</div>
+                <div class="stat-label">Responses Submitted</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="profile-section">
+            <h3>Recent Activity</h3>
+            <div class="activity-list" id="recentActivity">
+              <div class="loading-state">Loading recent activity...</div>
+            </div>
+          </div>
+
+          <div class="profile-section danger-zone">
+            <h3>Danger Zone</h3>
+            <div class="danger-content">
+              <p>Once you delete your account, there is no going back. Please be certain.</p>
+              <button class="delete-account-btn" id="deleteAccountBtn">
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M14.74 9l-.346 9m-4.788 0L9.26 9m9.968-3.21c.342.052.682.107 1.022.166m-1.022-.165L18.16 19.673a2.25 2.25 0 01-2.244 2.077H8.084a2.25 2.25 0 01-2.244-2.077L4.772 5.79m14.456 0a48.108 48.108 0 00-3.478-.397m-12 .562c.34-.059.68-.114 1.022-.165m0 0a48.11 48.11 0 013.478-.397m7.5 0v-.916c0-1.18-.91-2.164-2.09-2.201a51.964 51.964 0 00-3.32 0c-1.18.037-2.09 1.022-2.09 2.201v.916m7.5 0a48.667 48.667 0 00-7.5 0" />
+                </svg>
+                Delete Account
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+  </div>
+  <script type="module" src="/config/firebase-config.js"></script>
+  <script type="module" src="/components/sidebar.js"></script>
+  <script type="module" src="../js/profile.js"></script>
+</body>
+</html>

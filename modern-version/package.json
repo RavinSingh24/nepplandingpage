@@ -1,0 +1,16 @@
+{
+  "name": "nepp-firebase-app",
+  "version": "1.0.0",
+  "description": "NEPP Firebase Hosting Application",
+  "scripts": {
+    "serve": "firebase serve --host localhost --port 5000",
+    "deploy": "firebase deploy",
+    "deploy:hosting": "firebase deploy --only hosting",
+    "deploy:rules": "firebase deploy --only firestore:rules,storage",
+    "deploy:production": "firebase use nepp-82074 && firebase deploy",
+    "deploy:test": "firebase use nepp-test-server && firebase deploy"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

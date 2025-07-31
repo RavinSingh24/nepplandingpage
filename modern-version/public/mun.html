@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEPP | Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" href="../images/logo.png" type="image/png">
+</head>
+<body>
+    <nav>
+        <div class="logo">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+              <img src="NEPPlogo.png" alt="NEPP Logo" style="height: 40px; margin-right: 10px;">
+              <span style="font-size: 1.5rem; font-weight: bold; color: var(--accent-color);">NEPP</span>
+            </a>
+          </div>
+        <ul>
+          <li><a href="mun.html">MUN</a></li>
+          <li><a href="tsa.html">TSA</a></li>
+          <li><a href="scio.html">SCIO</a></li>
+          <li><a href="debate.html">DEBATE</a></li>
+          <li><a>|</a></li>
+          <li><a href="team.html">TEAM</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+          <li><a href="login.html" id="login-link">LOGIN</a></li>
+          <li><a href="#" id="logout-link" style="display: none;">LOGOUT</a></li>
+          <li><a href="profile.html" id="profile-link" style="display: none;">PROFILE</a></li>
+        </ul>
+      </nav>
+      
+    
+    <script type="module">
+        import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@12.10.4/+esm"
+    
+        inView(".scroll-section pre", (element) => {
+            animate(
+                element,
+                { opacity: 1, x: [-100, 0] },
+                {
+                    duration: 0.9,
+                    easing: [0.17, 0.55, 0.55, 1],
+                }
+            )
+    
+            return () => animate(element, { opacity: 0, x: -100 })
+        })
+    </script>
+    <div class="scroll-container">
+        <section class="scroll-section">
+          <div class="scroll-content">
+            <h2>Mentoring, Polishing, and Building Delegates</h2>
+            <p>Doing MOD+UNMOD training as well as what to expect in High School MUN</p>
+          </div>
+        </section>
+        <section class="scroll-section">
+          <div class="scroll-content">
+            <h2>Conference</h2>
+            <p>Preparing Middle Schoolers for upcoming conferences including VIMUNC, CHMUN, and TECHMUN.</p>
+          </div>
+        </section>
+        <section class="scroll-section">
+          <div class="scroll-content">
+            <h2>NEPPMOCK</h2>
+            <p>Hosting our very own mock (awards and gavels included!!!) </p>
+          </div>
+        </section>
+        <section class="scroll-section">
+          <div class="scroll-content">
+            <h2>Hosting NEPPMUN</h2>
+            <p>A combined middle school conference with trained delegates from all schools within NEPP’s program.</p>
+          </div>
+        </section>
+      </div>
+  <footer class="footer">
+    <p>Contact us: <a href="mailto:nepp.advisors@gmail.com">email</a> | <a href="https://www.instagram.com/neppadvisors/" target="_blank">Instagram</a></p>
+    <p>© 2025 NEPP | A Non-Profit Organization</p>
+  </footer>
+  
+  <script type="module">
+    import { animate, inView } from "https://cdn.jsdelivr.net/npm/motion@12.10.4/+esm";
+  
+    inView(".scroll-section", (section) => {
+      const heading = section.querySelector("h2");
+      const para = section.querySelector("p");
+  
+      animate(heading, { opacity: 1, x: [ -100, 0 ] }, {
+        duration: 0.8,
+        easing: "ease-out",
+      });
+  
+      animate(para, { opacity: 1, x: [ -100, 0 ] }, {
+        delay: 0.2,
+        duration: 0.8,
+        easing: "ease-out",
+      });
+  
+      return () => {
+        animate(heading, { opacity: 0, x: -100 });
+        animate(para, { opacity: 0, x: -100 });
+      };
+    });
+  </script>
+
+  <!-- Firebase Authentication -->
+  <script type="module">
+    import { setupAuth } from './auth.js';
+    setupAuth();
+  </script>
+
+</body>
+</html>

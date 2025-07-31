@@ -1,0 +1,374 @@
+/* Users Directory Styles */
+.users-header {
+  color: #ffd600;
+  margin-bottom: 2rem;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.users-subtitle {
+  color: #8892b0;
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.users-search {
+  position: relative;
+  max-width: 500px;
+  margin: 0 auto 2rem;
+  z-index: 10;
+}
+
+.users-search svg {
+  position: absolute;
+  left: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #8892b0;
+  pointer-events: none;
+  z-index: 11;
+  width: 20px;
+  height: 20px;
+}
+
+.users-search input {
+  width: 100%;
+  padding: 1rem 1rem 1rem 3rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #374a6b;
+  border-radius: 12px;
+  color: white;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  position: relative;
+  z-index: 10;
+}
+
+.users-search input:focus {
+  outline: none;
+  border-color: #ffd600;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.users-search input::placeholder {
+  color: #8892b0;
+}
+
+.users-filters {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-bottom: 3rem;
+  flex-wrap: wrap;
+  position: relative;
+  z-index: 5;
+}
+
+.filter-group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.filter-group label {
+  color: #8892b0;
+  font-weight: 500;
+}
+
+.filter-group select {
+  padding: 0.5rem 1rem;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid #374a6b;
+  border-radius: 8px;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.filter-group select:focus {
+  outline: none;
+  border-color: #ffd600;
+}
+
+.filter-group select option {
+  background: #1a2438;
+  color: white;
+}
+
+.users-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 1;
+  clear: both;
+}
+
+.users-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  z-index: 1;
+}
+
+.user-card {
+  background: linear-gradient(135deg, #1a2438 0%, #2a3854 100%);
+  border: 1px solid #374a6b;
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+}
+
+.user-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(90deg, #ffd600, #ffed4e);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.3s ease;
+}
+
+.user-card:hover::before {
+  transform: scaleX(1);
+}
+
+.user-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+  border-color: #ffd600;
+}
+
+.user-avatar-section {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.user-avatar {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ffd600, #ffed4e);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #1a2438;
+  font-weight: bold;
+  font-size: 1.5rem;
+  flex-shrink: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.user-avatar img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.user-info h3 {
+  color: #ffd600;
+  margin: 0 0 0.25rem 0;
+  font-size: 1.1rem;
+}
+
+.user-email {
+  color: #8892b0;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.user-bio {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 1rem 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.user-stats {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid #374a6b;
+}
+
+.user-stat {
+  text-align: center;
+  flex: 1;
+}
+
+.user-stat-number {
+  color: #ffd600;
+  font-weight: bold;
+  font-size: 1.2rem;
+  display: block;
+}
+
+.user-stat-label {
+  color: #8892b0;
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+}
+
+.user-badges {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  flex-wrap: wrap;
+}
+
+.user-badge {
+  background: rgba(255, 214, 0, 0.2);
+  color: #ffd600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 12px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.user-badge.new-member {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+}
+
+.user-badge.active {
+  background: rgba(59, 130, 246, 0.2);
+  color: #3b82f6;
+}
+
+.pagination {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.page-btn {
+  padding: 0.5rem 1rem;
+  background: linear-gradient(135deg, #ffd600 0%, #ffed4e 100%);
+  color: #1a2438;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.page-btn:hover:not(:disabled) {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 214, 0, 0.3);
+}
+
+.page-btn:disabled {
+  background: #374a6b;
+  color: #8892b0;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+#pageInfo {
+  color: #8892b0;
+  font-weight: 500;
+}
+
+.loading-state, .empty-state {
+  grid-column: 1 / -1;
+  text-align: center;
+  padding: 3rem;
+  color: #8892b0;
+  font-style: italic;
+}
+
+.empty-state h3 {
+  color: #ffd600;
+  margin-bottom: 1rem;
+}
+
+.search-prompt {
+  text-align: center;
+  padding: 3rem 2rem;
+  color: #8892b0;
+  background: rgba(255, 255, 255, 0.02);
+  border: 1px dashed #374a6b;
+  border-radius: 12px;
+  margin: 2rem 0;
+}
+
+.search-prompt .search-icon {
+  margin-bottom: 1rem;
+  opacity: 0.6;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-prompt .search-icon svg {
+  width: 48px;
+  height: 48px;
+  fill: #8892b0;
+}
+
+.search-prompt p {
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  color: #ccd6f6;
+}
+
+.search-prompt small {
+  color: #8892b0;
+  font-size: 0.9rem;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+  .users-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .users-filters {
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+  
+  .filter-group {
+    flex-direction: column;
+    text-align: center;
+  }
+  
+  .user-stats {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  
+  .user-stat {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .pagination {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+}

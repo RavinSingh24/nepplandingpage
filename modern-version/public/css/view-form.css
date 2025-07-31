@@ -1,0 +1,286 @@
+.view-form-header {
+  margin-bottom: 2rem;
+}
+
+.view-form-header h1 {
+  color: #FFD600;
+  margin-bottom: 1rem;
+}
+
+.form-meta {
+  display: flex;
+  gap: 1.5rem;
+  margin-bottom: 1rem;
+  color: #8492a6;
+  font-size: 0.9rem;
+}
+
+.form-type {
+  padding: 0.25rem 0.75rem;
+  border-radius: 1rem;
+  font-weight: 500;
+}
+
+.form-type.public {
+  background: rgba(255, 214, 0, 0.1);
+  color: #FFD600;
+}
+
+.form-type.private {
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+}
+
+.form-description {
+  color: #fff;
+  margin-bottom: 2rem;
+}
+
+.questions-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.question-card {
+  background: #1a2438;
+  border-radius: 12px;
+  padding: 1.5rem;
+  border: 1px solid #2a3854;
+}
+
+.question-title {
+  color: #FFD600;
+  margin-bottom: 1rem;
+  font-size: 1.1rem;
+}
+
+.required-marker {
+  color: #dc3545;
+  margin-left: 0.25rem;
+}
+
+.question-input {
+  width: 100%;
+  padding: 0.75rem;
+  background: #112334;
+  border: 1px solid #2a3854;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 1rem;
+}
+
+textarea.question-input {
+  min-height: 120px;
+  resize: vertical;
+}
+
+.options-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.option-item {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.option-item input[type="radio"],
+.option-item input[type="checkbox"] {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.option-label {
+  color: #fff;
+  cursor: pointer;
+}
+
+.form-actions {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
+}
+
+.cancel-btn,
+.submit-btn {
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.cancel-btn {
+  background: #2a3854;
+  color: #fff;
+}
+
+.submit-btn {
+  background: #FFD600;
+  color: #0a0f1a;
+}
+
+.cancel-btn:hover {
+  background: #374a6b;
+}
+
+.submit-btn:hover {
+  background: #ffe666;
+}
+
+/* File upload styles */
+.file-upload-container {
+  border: 2px dashed #2a3854;
+  border-radius: 8px;
+  padding: 1.5rem;
+  text-align: center;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.file-upload-container:hover {
+  border-color: #FFD600;
+}
+
+.file-upload-container input[type="file"] {
+  display: none;
+}
+
+.upload-icon {
+  color: #FFD600;
+  margin-bottom: 0.5rem;
+}
+
+.upload-text {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.file-types {
+  color: #8492a6;
+  font-size: 0.9rem;
+}
+
+/* Linear scale styles */
+.scale-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 1rem;
+  padding: 0 1rem;
+}
+
+.scale-labels {
+  display: flex;
+  justify-content: space-between;
+  color: #8492a6;
+  font-size: 0.9rem;
+  margin-top: 0.5rem;
+}
+
+.scale-options {
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+}
+
+.scale-option {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.scale-radio {
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.scale-value {
+  color: #fff;
+  font-size: 0.9rem;
+}
+
+/* Error styles */
+.error-container {
+  text-align: center;
+  padding: 2rem;
+  background: #1a2438;
+  border-radius: 12px;
+  margin-top: 2rem;
+}
+
+.error-container h2 {
+  color: #dc3545;
+  margin-bottom: 1rem;
+}
+
+.error-container p {
+  color: #8492a6;
+  margin-bottom: 1.5rem;
+}
+
+.error {
+  color: #dc3545;
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.loading-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 200px;
+}
+
+.loading {
+  color: #8492a6;
+  font-style: italic;
+}
+
+/* Add to your existing CSS */
+.header-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.edit-btn {
+  padding: 0.5rem 1rem;
+  background: #2a3854;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.edit-btn:hover {
+  background: #374a6b;
+}
+
+.submit-btn.has-changes {
+  background: #ffd600;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 rgba(255, 214, 0, 0.4);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(255, 214, 0, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(255, 214, 0, 0);
+  }
+}

@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>NEPP | Home</title>
+  <link rel="stylesheet" href="css/styles(1).css">
+</head>
+<body>
+    <nav id="header">
+        <div class="logo">
+            <a href="index.html" style="display: flex; align-items: center; text-decoration: none;">
+              <img src="NEPPlogo.png" alt="NEPP Logo" style="height: 40px; margin-right: 10px;">
+              <span style="font-size: 1.5rem; font-weight: bold; color: var(--accent-color);">NEPP</span>
+            </a>
+          </div>
+        <ul>
+          <li><a href="mun.html">MUN</a></li>
+          <li><a href="tsa.html">TSA</a></li>
+          <li><a href="scio.html">SCIO</a></li>
+          <li><a href="debate.html">DEBATE</a></li>
+          <li><a>|</a></li>
+          <li><a href="team.html">TEAM</a></li>
+          <li><a href="contact.html">CONTACT</a></li>
+        </ul>
+      </nav>
+      <br>
+  <br>
+  <button
+    style="font-size: 50px; margin-left: 90%; margin-top: 5%; color: white; background-color:#071F36; border: none; display: block;"
+    onclick="closeNav()" id="closeNav">&uarr;</button>
+  <button
+    style="font-size: 50px; margin-left: 90%; margin-top: 5%; color: white; background-color:#071F36; border: none; display: none;"
+    onclick="openNav()" id="openNav">&#9776;</button>
+  <script>
+    function openNav() {
+      document.getElementById("header").style.height = "100px";
+      document.getElementById("closeNav").style.display = "block";
+      document.getElementById("openNav").style.display = "none";
+    }
+
+    function closeNav() {
+      document.getElementById("header").style.height = "0";
+      document.getElementById("closeNav").style.display = "none";
+      document.getElementById("openNav").style.display = "block";
+    }
+  </script>
+      <br>
+      <br>
+      <br>
+      <br>
+      <br>
+    <img src="NEPPlogo.png" alt="teamimage" style="width: 25%; margin-left: 38%;">
+    <section class="card-container">
+        <div class="card">
+          <div class="card-content">
+            <img src="anjay.png" alt="anjay">
+            <h2>Anjay Kannan</h2>
+            <p>Chief Executive Officer</p> 
+            <p><a href="mailto:anjaykannan508@gmail.com">anjaykannan508@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <img src="shayaan.png" alt="shayaan">
+            <h2>Shayaan Dutt</h2>
+            <p>President</p>
+            <p><a href="mailto:shayaanduttlaw@gmail.com">shayaanduttlaw@gmail.com</a></p>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-content">
+            <img src="ravin.png" alt="ravin">
+            <h2>Ravin Singh</h2>
+            <p>Chief Technology Officer</p>
+            <p><a href="mailto:ravinsingh.us@gmail.com">ravinsingh.us@gmail.com</a></p>
+          </div>
+        </div>
+    </section>
+    <section class="card-container">
+        <div class="card">
+            <div class="card-content">
+                <img src="kevin.png" alt="kevin">
+                <h2>Kevin Wang</h2>
+                <p>MUN Captain</p>
+                <p><a href="mailto:kw1681884@gmail.com">kw1681884@gmail.com</a></p>
+            </div>
+        </div>
+        <div class="card">
+            <div class="card-content">
+                <img src="veer.png" alt="veer">
+                <h2>Veer Sawhney</h2>
+                <p>Debate Captain</p>
+                <p><a href="mailto:vsawhney21@gmail.com">vsawhney21@gmail.com</a></p>
+            </div>
+        </div>
+    </section>
+    <br>
+    <br>
+    <br>
+    <!--Devs section-->
+  <section style="background-color: #0C2A45;">
+    <h2 style="text-align: center;">Special thanks to our web developers:</h2>
+      <div id="demo" style="width: 200px; font-size: 25px; text-align: center; margin-left: 43%;">
+      </div>
+  </section>
+
+  <script>
+    var i = 0;
+    var txt = 'Ayan Prasad Kevin Zhao Dainna Park Daniel Tikhonov Gabe Amare Jaden Ryu';
+    var speed = 50;
+
+    function typeWriter() {
+      if (i < txt.length) {
+        document.getElementById("demo").innerHTML += txt.charAt(i);
+        i++;
+        setTimeout(typeWriter, speed);
+      }
+    }
+    typeWriter()
+  </script>
+  <footer class="footer">
+    <p>Contact us: <a href="mailto:nepp.advisors@gmail.com">Email</a> | <a href="https://www.instagram.com/neppadvisors/" target="_blank">Instagram</a></p>
+    <p>© 2025 NEPP | A Non-Profit Organization</p>
+  </footer>
+</body>
+</html>

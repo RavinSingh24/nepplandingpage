@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Login - NEPP</title>
+  <link rel="icon" href="./images/logo.png" type="image/png">
+  <style>
+    /* --- Global and Body Styles --- */
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    margin: 0;
+    font-family: 'Inter', 'Segoe UI', Arial, sans-serif;
+    background: #101622;
+    color: #fff;
+  }
+
+    .auth-container {
+      max-width: 400px;
+      margin: 100px auto;
+      padding: 2rem;
+      background: #112334;
+      border-radius: 12px;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    }
+    .auth-container h1 {
+      color: #FFD600;
+      margin-bottom: 2rem;
+      text-align: center;
+    }
+    .form-group {
+      margin-bottom: 1rem;
+    }
+    .form-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      color: #fff;
+    }
+    .form-group input {
+      width: 100%;
+      padding: 0.75rem;
+      border: 1px solid #2a3854;
+      border-radius: 4px;
+      background: #1a2438;
+      color: #fff;
+    }
+    .auth-btn {
+      width: 100%;
+      padding: 0.75rem;
+      background: #FFD600;
+      color: #0a0f1a;
+      border: none;
+      border-radius: 4px;
+      font-weight: bold;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .auth-btn:hover:not(:disabled) {
+      background: #ffed4a;
+    }
+    .auth-btn:disabled {
+      background: #666;
+      cursor: not-allowed;
+    }
+    .auth-links {
+      margin-top: 1rem;
+      text-align: center;
+      color: #FFD600;
+    }
+    .auth-links a {
+      color: #FFD600;
+      text-decoration: underline;
+    }
+    .auth-message {
+      margin-top: 1rem;
+      padding: 0.75rem;
+      border-radius: 4px;
+      display: none;
+    }
+    .auth-divider {
+      margin: 1.5rem 0;
+      text-align: center;
+      color: #fff;
+    }
+    .auth-divider span {
+      background: #112334;
+      padding: 0 1rem;
+    }
+    .google-btn {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      padding: 0.75rem;
+      background: white;
+      color: #757575;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-weight: 500;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+      cursor: pointer;
+      margin-top: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    .google-btn:hover {
+      background-color: #f5f5f5;
+    }
+    .google-btn img {
+      width: 18px;
+      height: 18px;
+      margin-right: 8px;
+    }
+  </style>
+</head>
+<body class = "background">
+  <div class="auth-container">
+    <h1>Login to NEPP</h1>
+    <form id="login-form">
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" required>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" required>
+      </div>
+      <button type="submit" class="auth-btn">Login</button>
+      <div id="auth-message" class="auth-message"></div>
+    </form>
+    <div class="auth-divider">
+      <span>or</span>
+    </div>
+    <button id="googleSignIn" class="auth-btn google-btn">
+      <img src="https://www.google.com/favicon.ico" alt="Google">
+      Sign in with Google
+    </button>
+    <div class="auth-links">
+      <p>Don't have an account? <a href="signup.html">Sign up</a></p>
+      <p><a href="#" id="forgot-password">Forgot password?</a></p>
+    </div>
+  </div>
+  <script type="module" src="/config/firebase-config.js"></script>
+  <script type="module" src="../js/auth.js"></script>
+</body>
+</html>

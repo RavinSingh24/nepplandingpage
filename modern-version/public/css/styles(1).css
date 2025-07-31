@@ -1,0 +1,118 @@
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: Arial, sans-serif; color: #fff; background: #0a0f1a; display: flex; min-height: 100vh; }
+.sidebar {
+  width: 220px; background: #0d152d; display: flex; flex-direction: column;
+}
+.sidebar .logo { padding: 20px; font-size: 24px; text-align: center; }
+.sidebar ul { flex: 1; list-style: none; }
+.sidebar li a {
+  display: block; padding: 12px 20px; color: #ccc; text-decoration: none;
+}
+.sidebar li.active a, .sidebar li a:hover { background: #1a243a; color: #fff; }
+.sidebar .profile {
+  padding: 20px; border-top: 1px solid #16354f; text-align: center;
+}
+.sidebar .profile .name { font-weight: bold; }
+.sidebar .verified-badge {
+  display: inline-block; margin-top: 5px; background: gold; color: #000;
+  border-radius: 50%; width: 20px; height: 20px; line-height: 20px;
+}
+
+.content { flex: 1; padding: 20px; overflow-y: auto; }
+.page-header {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-bottom: 20px;
+}
+.page-header h1 { font-size: 28px; }
+.user-icon {
+  width: 40px; height: 40px; border-radius: 50%;
+  background: gold;
+}
+.user-icon.large { width: 80px; height: 80px; }
+
+.btn {
+  background: gold; color: #0a0f1a; border: none;
+  padding: 8px 16px; border-radius: 4px; cursor: pointer;
+}
+.btn:hover { opacity: 0.9; }
+
+.dashboard-sections {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(250px,1fr)); gap: 20px;
+}
+
+.panel {
+  background: #112334; padding: 20px; border-radius: 8px;
+}
+.panel.announcements h2, .panel.forms h2, .panel.calendar h2 { margin-bottom: 10px; }
+.author {
+  display: flex; align-items: center; margin-top: 15px;
+}
+.author .avatar {
+  width: 30px; height: 30px; border-radius: 50%; background: #333; margin-right: 10px;
+}
+.calendar-widget { background: #0e1b33; padding: 10px; border-radius: 6px; }
+.cal-header {
+  display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px;
+}
+.cal-header button {
+  background: transparent; border: none; color: #fff; font-size: 20px;
+}
+.calendar-grid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+.calendar-grid div {
+  width: 30px; height: 30px; line-height: 30px;
+  text-align: center; color: #ccc;
+}
+.calendar-grid div.highlight { background: gold; border-radius: 4px; color: #0a0f1a; }
+
+.section { margin-bottom: 30px; }
+.quiz-list {
+  display: grid; gap: 16px;
+  grid-template-columns: repeat(auto-fill, minmax(200px,1fr));
+}
+.quiz-list.horizontal-scroll {
+  display: flex; overflow-x: auto; gap: 16px;
+}
+.quiz-item {
+  background: #112334; padding: 16px; border-radius: 6px; flex: 0 0 200px;
+}
+.quiz-item h3 { margin-bottom: 6px; }
+.quiz-item p { font-size: 14px; line-height: 1.4; margin-bottom: 8px; }
+.quiz-item small { color: #888; }
+
+.folder {
+  background: #112334; color: #ccc; padding: 12px 16px;
+  border: none; border-radius: 20px; margin: 8px; cursor: pointer;
+}
+.folder:hover { background: #1a273c; }
+
+.upload-area {
+  background: #112334; height: 120px; margin-top: 20px;
+  display: flex; align-items: center; justify-content: center;
+  border: 2px dashed #334361; border-radius: 8px;
+}
+
+.announcements-list {
+  display: flex; flex-direction: column; gap: 16px;
+}
+.announcement-item {
+  background: #112334; padding: 20px; border-radius: 8px;
+}
+.announcement-item .author {
+  display: flex; align-items: center; margin-top: 12px;
+}
+.announcement-item .avatar {
+  width: 30px; height: 30px; border-radius: 50%; background: #333; margin-right: 10px;
+}
+
+.teams-section .team-card {
+  background: #112334; padding: 16px; margin-bottom: 16px; border-radius: 8px;
+}
+.icon { margin-right: 6px; }
+.icon.user-group::before { content: "👥"; }
+.icon.leader::before { content: "⭐"; }
+
+.edit-icon { margin-right: 8px; color: gold; }
