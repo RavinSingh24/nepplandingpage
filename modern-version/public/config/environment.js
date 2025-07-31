@@ -4,7 +4,8 @@ const environments = {
     // other dev config
   },
   production: {
-    apiKey: "AIzaSyACpzHEJBx9xBI0vWijY4BdgYug1CY4DBY",
+    apiKey: //Hidden to avoid public data leak
+      ,
     // current production config
   }
 };
